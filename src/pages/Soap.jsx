@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 function NextArrow({ onClick }) {
   return (
     <button
-      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
+      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
       onClick={onClick}
     >
       ▶
@@ -21,7 +21,7 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <button
-      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
+      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
       onClick={onClick}
     >
       ◀
@@ -37,13 +37,46 @@ export default function Soap() {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    autoplay: false,
+    centerMode: false,
+    variableWidth: false,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "20px",
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          arrows: true,
+          dots: true,
+        },
+      },
     ],
   };
 
@@ -77,7 +110,7 @@ export default function Soap() {
       {/* ABOUT */}
       <section className="container grid md:grid-cols-2 gap-8 py-16 items-center reveal bg-[#fdf9f0]">
         <div>
-          <h2 className="text-3xl text-[#16422f] font-bold">Nature’s Touch</h2>
+          <h2 className="text-3xl text-[#16422f] font-bold">Nature's Touch</h2>
           <p className="mt-4 text-[#3f6b53]">
             Handmade bars using essential oils, gentle cleansers, and botanicals
             for healthy skin.
@@ -87,7 +120,7 @@ export default function Soap() {
           loading="lazy"
           src="/images/soap-stack.jpg"
           alt="Soaps"
-          className="rounded-2xl shadow-lg"
+          className="rounded-2xl shadow-lg w-full h-auto"
         />
       </section>
 
@@ -96,8 +129,8 @@ export default function Soap() {
         <div className="container max-w-3xl text-center">
           <h3 className="text-2xl font-semibold">Our Story</h3>
           <p className="mt-4">
-            Inspired by nature, each bar of soap is made with care — blending
-            oils, herbs, and botanicals to bring you gentle skincare that’s kind
+            Inspired by nature, each bar of soap is made with care – blending
+            oils, herbs, and botanicals to bring you gentle skincare that's kind
             to both you and the earth.
           </p>
         </div>
@@ -106,26 +139,29 @@ export default function Soap() {
       {/* PRODUCTS CAROUSEL */}
       <section className="bg-[#fdf9f0] py-12 reveal relative">
         <div className="container">
-          <h3 className="text-2xl text-center text-[#16422f] font-semibold">
+          <h3 className="text-2xl text-center text-[#16422f] font-semibold mb-8">
             Our Collection
           </h3>
-          <div className="relative mt-8">
+          <div className="relative mx-4 md:mx-0">
             <Slider {...sliderSettings}>
               {PRODUCTS.soap.map((p) => (
-                <div
-                  key={p.id}
-                  className="px-3 cursor-pointer"
-                  onClick={() => setModalItem(p)}
-                >
-                  <div className="product-card">
+                <div key={p.id} className="px-2 md:px-3">
+                  <div
+                    className="product-card cursor-pointer mx-auto max-w-sm"
+                    onClick={() => setModalItem(p)}
+                  >
                     <img
                       loading="lazy"
                       src={p.image || "/images/soap-default.jpg"}
                       alt={p.title}
-                      className="rounded-xl"
+                      className="rounded-xl w-full h-48 md:h-56 object-cover"
                     />
-                    <h4 className="mt-3 font-semibold">{p.title}</h4>
-                    <div className="mt-2 text-sm text-[#6b8a73]">{p.price}</div>
+                    <h4 className="mt-3 font-semibold text-center text-[#16422f]">
+                      {p.title}
+                    </h4>
+                    <div className="mt-2 text-sm text-[#6b8a73] text-center">
+                      {p.price}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -139,7 +175,7 @@ export default function Soap() {
         <div className="container max-w-2xl mx-auto">
           <h4 className="text-xl font-semibold">Inspired by Nature</h4>
           <p className="mt-3 text-sm">
-            Gentle, simple, and effective — like nature intended.
+            Gentle, simple, and effective – like nature intended.
           </p>
         </div>
       </section>
@@ -154,27 +190,31 @@ export default function Soap() {
             <img
               src="/images/soap-testi1.jpg"
               alt="Customer review"
-              className="rounded-xl"
+              className="rounded-xl w-full h-48 object-cover"
             />
-            <p className="mt-3 text-sm">
-              "Soothing for my sensitive skin!" — N.S.
+            <p className="mt-3 text-sm text-center">
+              "Soothing for my sensitive skin!" – N.S.
             </p>
           </div>
           <div className="product-card">
             <img
               src="/images/soap-testi2.jpg"
               alt="Customer review"
-              className="rounded-xl"
+              className="rounded-xl w-full h-48 object-cover"
             />
-            <p className="mt-3 text-sm">
-              "Lovely scents and great lather." — R.M.
+            <p className="mt-3 text-sm text-center">
+              "Lovely scents and great lather." – R.M.
             </p>
           </div>
           <div className="product-card">
-            <img src="/baby.jpg" alt="Customer review" className="rounded-xl" />
-            <p className="mt-3 text-sm">
+            <img
+              src="/baby.jpg"
+              alt="Customer review"
+              className="rounded-xl w-full h-48 object-cover"
+            />
+            <p className="mt-3 text-sm text-center">
               "Best soap collection for babies with varied and unique flavours."
-              — L.P.
+              – L.P.
             </p>
           </div>
         </div>
@@ -188,7 +228,7 @@ export default function Soap() {
             Our most-loved soaps, chosen by you.
           </p>
 
-          <div className="grid gap-8 mt-10 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+          <div className="grid gap-8 mt-10 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 max-w-6xl mx-auto">
             {/* Bestseller 1 */}
             <div
               className="product-card p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer"
@@ -206,7 +246,7 @@ export default function Soap() {
               <img
                 src="/images/soap-card1.jpg"
                 alt="Lavender Calm"
-                className="rounded-xl w-full object-cover"
+                className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
               <h4 className="mt-3 font-semibold text-[#16422f]">
@@ -232,7 +272,7 @@ export default function Soap() {
               <img
                 src="/images/soap-card2.jpg"
                 alt="Mint Fresh"
-                className="rounded-xl w-full object-cover"
+                className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
               <h4 className="mt-3 font-semibold text-[#16422f]">Mint Fresh</h4>
@@ -256,7 +296,7 @@ export default function Soap() {
               <img
                 src="/images/honeyaloevera.jpg"
                 alt="Honey Aloe Vera"
-                className="rounded-xl w-full object-cover"
+                className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
               <h4 className="mt-3 font-semibold text-[#16422f]">

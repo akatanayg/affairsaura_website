@@ -28,123 +28,125 @@ export default function Header() {
 
   return (
     <>
-      {/* fixed top header */}
-      <header
-        className="site-header fixed top-0 left-0 right-0 z-50 bg-[#fdf9f0] shadow-md"
-        role="banner"
-      >
-        <div
-          className="container flex items-center justify-between md:justify-center"
-          style={{ height: 72 }}
-        >
-          {/* LOGO */}
-          <div className="flex items-center gap-4 md:absolute md:left-6">
-            <Link
-              to="/"
-              className="logo text-gray-900"
-              style={{ textDecoration: "none", fontFamily: "Georgia, serif" }}
-            >
-              <img
-                src="/logo.png" // 👈 replace with your actual logo image path
-                alt="AffairsAura Logo"
-                className="h-20 w-auto" // controls size (adjust as needed)
-              />
-            </Link>
-          </div>
-
-          {/* DESKTOP NAV */}
-          <nav
-            aria-label="Main navigation"
-            className="hidden md:flex items-center justify-center gap-8 flex-1"
-          >
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  [
-                    "font-medium transition-colors",
-                    isActive
-                      ? "text-[#234534]"
-                      : "text-gray-900 hover:text-[#234534]",
-                  ].join(" ")
-                }
+      {/* Fixed top header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo Section */}
+            <div className="flex items-center flex-shrink-0">
+              <Link
+                to="/"
+                className="flex items-center"
+                onClick={() => setOpen(false)}
               >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
+                <img
+                  src="/logo.png"
+                  alt="AffairsAura Logo"
+                  className="h-10 w-auto md:h-12 object-contain"
+                />
+              </Link>
+            </div>
 
-          {/* MOBILE: hamburger */}
-          <button
-            className="md:hidden p-2 rounded text-gray-900"
-            onClick={() => setOpen(true)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label="Open menu"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
+              <div className="flex items-center space-x-8">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.path}
+                    to={link.path}
+                    className={({ isActive }) =>
+                      `relative text-sm font-medium transition-all duration-200 hover:text-[#234534] ${
+                        isActive ? "text-[#234534]" : "text-gray-700"
+                      }`
+                    }
+                  >
+                    {({ isActive }) => (
+                      <>
+                        {link.label}
+                        {isActive && (
+                          <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#234534] rounded-full"></span>
+                        )}
+                      </>
+                    )}
+                  </NavLink>
+                ))}
+              </div>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              onClick={() => setOpen(true)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label="Open navigation menu"
+            >
+              <Menu className="h-6 w-6 text-gray-700" />
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* Mobile Menu Overlay */}
       <div
         id="mobile-menu"
-        aria-hidden={!open}
-        className={`fixed inset-0 z-40 pointer-events-auto md:hidden transition-transform duration-320 ${
-          open ? "translate-y-0" : "-translate-y-full"
+        className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
+          open
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
-        {/* background dim */}
+        {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-black ${
-            open ? "opacity-30 transition-opacity duration-200" : "opacity-0"
+          className={`absolute inset-0 bg-black transition-opacity duration-300 ${
+            open ? "opacity-50" : "opacity-0"
           }`}
           onClick={() => setOpen(false)}
-          aria-hidden="true"
         />
 
-        {/* panel */}
-        <div className="relative bg-white h-full overflow-auto">
-          {/* panel header */}
-          <div
-            className="flex items-center justify-between px-4"
-            style={{ height: 72 }}
-          >
+        {/* Mobile Menu Panel */}
+        <div
+          className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ${
+            open ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          {/* Mobile Header */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-100">
             <Link
               to="/"
+              className="flex items-center"
               onClick={() => setOpen(false)}
-              className="logo text-gray-900"
-              style={{ textDecoration: "none", fontFamily: "Georgia, serif" }}
             >
-              <span style={{ fontWeight: 700 }}>AffairsAura</span>
+              <img
+                src="/logo.png"
+                alt="AffairsAura Logo"
+                className="h-8 w-auto object-contain"
+              />
             </Link>
 
             <button
-              className="p-2 rounded text-gray-900"
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
               onClick={() => setOpen(false)}
-              aria-label="Close menu"
+              aria-label="Close navigation menu"
             >
-              <X className="h-6 w-6" />
+              <X className="h-6 w-6 text-gray-700" />
             </button>
           </div>
 
-          {/* nav links */}
-          <nav className="px-6 pt-4 pb-8 border-t border-gray-100">
-            <ul className="space-y-4">
+          {/* Mobile Navigation */}
+          <nav className="py-6">
+            <ul className="space-y-1">
               {navLinks.map((link) => (
                 <li key={link.path}>
                   <NavLink
                     to={link.path}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      [
-                        "block text-lg font-medium py-3",
+                      `flex items-center px-6 py-4 text-base font-medium transition-all duration-200 ${
                         isActive
-                          ? "text-[#234534]"
-                          : "text-gray-900 hover:text-[#234534]",
-                      ].join(" ")
+                          ? "text-[#234534] bg-green-50 border-r-4 border-[#234534]"
+                          : "text-gray-700 hover:text-[#234534] hover:bg-gray-50"
+                      }`
                     }
                   >
                     {link.label}
@@ -152,11 +154,15 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-
-            <div className="mt-8 text-sm text-gray-600">
-              <p>Made with ❤️ — AffairsAura</p>
-            </div>
           </nav>
+
+          {/* Mobile Footer */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-100">
+            <div className="text-center">
+              <p className="text-sm text-gray-500 mb-2">Made with care</p>
+              <p className="text-xs text-gray-400">AffairsAura</p>
+            </div>
+          </div>
         </div>
       </div>
     </>

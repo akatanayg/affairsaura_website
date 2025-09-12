@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 function NextArrow({ onClick }) {
   return (
     <button
-      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
+      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
       onClick={onClick}
     >
       ▶
@@ -21,7 +21,7 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <button
-      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
+      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
       onClick={onClick}
     >
       ◀
@@ -37,13 +37,46 @@ export default function Chocolate() {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    autoplay: false,
+    centerMode: false,
+    variableWidth: false,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "20px",
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          arrows: true,
+          dots: true,
+        },
+      },
     ],
   };
 
@@ -80,14 +113,14 @@ export default function Chocolate() {
           loading="lazy"
           src="/bottlec.jpg"
           alt="Handmade chocolates stack"
-          className="rounded-2xl shadow-lg"
+          className="rounded-2xl shadow-lg w-full h-auto"
         />
         <div>
           <h2 className="text-3xl text-[#3a2a24] font-bold">
             Crafted Elegance
           </h2>
           <p className="mt-4 text-[#6b5449]">
-            Small-batch bonbons, single-origin truffles, and curated flavors —
+            Small-batch bonbons, single-origin truffles, and curated flavors –
             made with ethically sourced cocoa and delicate craftsmanship.
           </p>
         </div>
@@ -108,26 +141,29 @@ export default function Chocolate() {
       {/* PRODUCTS CAROUSEL */}
       <section className="bg-[#fbf6f4] py-12 reveal relative">
         <div className="container">
-          <h3 className="text-2xl text-center text-[#3a2a24] font-semibold">
+          <h3 className="text-2xl text-center text-[#3a2a24] font-semibold mb-8">
             Our Collection
           </h3>
-          <div className="relative mt-8">
+          <div className="relative mx-4 md:mx-0">
             <Slider {...sliderSettings}>
               {PRODUCTS.chocolate.map((p) => (
-                <div
-                  key={p.id}
-                  className="px-3 cursor-pointer"
-                  onClick={() => setModalItem(p)}
-                >
-                  <div className="product-card">
+                <div key={p.id} className="px-2 md:px-3">
+                  <div
+                    className="product-card cursor-pointer mx-auto max-w-sm"
+                    onClick={() => setModalItem(p)}
+                  >
                     <img
                       loading="lazy"
                       src={p.image || "/images/choco-default.jpg"}
                       alt={p.title}
-                      className="rounded-xl"
+                      className="rounded-xl w-full h-48 md:h-56 object-cover"
                     />
-                    <h4 className="mt-3 font-semibold">{p.title}</h4>
-                    <div className="mt-2 text-sm text-[#8b857b]">{p.price}</div>
+                    <h4 className="mt-3 font-semibold text-center text-[#3a2a24]">
+                      {p.title}
+                    </h4>
+                    <div className="mt-2 text-sm text-[#8b857b] text-center">
+                      {p.price}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -141,7 +177,7 @@ export default function Chocolate() {
         <div className="container max-w-2xl mx-auto">
           <h4 className="text-xl font-semibold">A Journey of Taste</h4>
           <p className="mt-3 text-sm">
-            Every piece tells a story — from farmer cooperatives to our artisan
+            Every piece tells a story – from farmer cooperatives to our artisan
             kitchens.
           </p>
         </div>
@@ -157,9 +193,9 @@ export default function Chocolate() {
             <img
               src="/diwalicombopackc.jpg"
               alt="Customer review"
-              className="rounded-xl"
+              className="rounded-xl w-full h-48 object-cover"
             />
-            <p className="mt-3 text-sm">
+            <p className="mt-3 text-sm text-center">
               "A best diwali dhamaka combo pack" - A. R.
             </p>
           </div>
@@ -167,9 +203,9 @@ export default function Chocolate() {
             <img
               src="/diwalipackc5.jpg"
               alt="Customer review"
-              className="rounded-xl"
+              className="rounded-xl w-full h-48 object-cover"
             />
-            <p className="mt-3 text-sm">
+            <p className="mt-3 text-sm text-center">
               "Perfect gift and beautifully packaged." - S. K.
             </p>
           </div>
@@ -177,10 +213,10 @@ export default function Chocolate() {
             <img
               src="/bottlec.jpg"
               alt="Customer review"
-              className="rounded-xl"
+              className="rounded-xl w-full h-48 object-cover"
             />
-            <p className="mt-3 text-sm">
-              "Rich, balanced, excellent texture." — P. M.
+            <p className="mt-3 text-sm text-center">
+              "Rich, balanced, excellent texture." – P. M.
             </p>
           </div>
         </div>
@@ -194,7 +230,7 @@ export default function Chocolate() {
             Our most-loved chocolates, chosen by you.
           </p>
 
-          <div className="grid gap-8 mt-10 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+          <div className="grid gap-8 mt-10 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 max-w-6xl mx-auto">
             {/* Bestseller 1 */}
             <div
               className="product-card p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer"
@@ -212,7 +248,7 @@ export default function Chocolate() {
               <img
                 src="/bottlec.jpg"
                 alt="Bottle Chocolate"
-                className="rounded-xl w-full object-cover"
+                className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
               <h4 className="mt-3 font-semibold text-[#3a2a24]">
@@ -238,7 +274,7 @@ export default function Chocolate() {
               <img
                 src="/bhaidoojc1.jpg"
                 alt="Bhai Dooj Pack"
-                className="rounded-xl w-full object-cover"
+                className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
               <h4 className="mt-3 font-semibold text-[#3a2a24]">
@@ -264,7 +300,7 @@ export default function Chocolate() {
               <img
                 src="/candlepackc.jpg"
                 alt="Candle Chocolate Pack"
-                className="rounded-xl w-full object-cover"
+                className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
               <h4 className="mt-3 font-semibold text-[#3a2a24]">
