@@ -2,10 +2,10 @@
   "name": "affairsaura",
   "version": "0.0.1",
   "private": true,
-   "scripts": {
-    "dev": "vite",
-    "build": "node ./node_modules/vite/bin/vite.js build",
-    "preview": "vite preview"
+  "scripts": {
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "preview": "npx vite preview"
   },
   "dependencies": {
     "framer-motion": "^11.0.0",
