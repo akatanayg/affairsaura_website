@@ -1,0 +1,466 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------- Custom base styles ---------------- */
+:root {
+  --bg: #fdf9f0;
+  --card: #ffffff;
+  --accent: #5b3a2e;
+  --accent-2: #a66a4e;
+  --muted: #8b857b;
+
+  /* InfoSection tokens */
+  --infosection-bg: #234534; /* dark green */
+  --infosection-sub: #f0d9c6; /* warm subtitle */
+  --infosection-copy: #e8efe9; /* light paragraph copy */
+  --infosection-icon: #cfe9d6; /* light icon color */
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  @apply bg-gradient-to-b from-white to-[#f1ede9] text-gray-900;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* small utility animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: all 0.6s cubic-bezier(0.2, 0.9, 0.22, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Curve shadow helper (SVG drop-shadow) ---------- */
+.curve-shadow svg {
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.12));
+}
+
+/* ensure the curves don't overlap small screens too aggressively */
+@media (max-width: 640px) {
+  .curve-shadow svg {
+    height: 56px !important;
+  }
+}
+
+/* small responsive tweak to ensure images don't overflow */
+@media (max-width: 768px) {
+  .max-w-\[1200px\] {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+/* tiny polish: ensure top/bottom curves sit behind content visually on all screens */
+.curve-shadow {
+  z-index: 5;
+}
+motion-section,
+.curve-shadow + * {
+  z-index: 10;
+}
+
+/* ---------- InfoSection shadow & card tokens ---------- */
+.shadow-card {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* remove any visible gap by ensuring the curve sits flush */
+.curve-shadow {
+  margin-top: -1px;
+}
+
+/* tighten spacing on medium screens so content sits closer to the curve */
+@media (min-width: 768px) {
+  .curve-shadow {
+    margin-top: -6px;
+  }
+}
+
+/* very small screens: scale down images and remove heavy transforms */
+@media (max-width: 420px) {
+  .relative img {
+    width: 200px !important;
+    height: 220px !important;
+    transform: none !important;
+    left: 0 !important;
+    translate: none !important;
+  }
+
+  .max-w-\[1200px\] {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+/* ensure the header doesn't overlap the top curve on scroll */
+header,
+.site-header {
+  z-index: 60;
+  position: relative;
+}
+
+/* ensure section text uses the right colors by default */
+#about-heading {
+  color: #ffffff;
+}
+#about-heading + p {
+  color: var(--infosection-sub);
+}
+
+/* ---------- Infosection specific helpers (final curve fix + background) ---------- */
+
+/* green background block */
+.infosection-bg {
+  background: var(--infosection-bg);
+  /* ensure the green block extends slightly under the top curve for no-gap */
+  margin-top: -2px;
+  /* keep a small visual lift on larger screens */
+  box-shadow: inset 0 -6px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* Force InfoSection curve fills (white) */
+.infosection-top-curve path,
+.infosection-bottom-curve path {
+  fill: #ffffff;
+  shape-rendering: geometricPrecision;
+}
+
+/* ensure paragraph text uses justify alignment cleanly */
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Final small layout polish */
+@media (min-width: 1024px) {
+  .max-w-\[1200px\] {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ---------- InfoSection curves & background (duplicate tokens OK) ---------- */
+:root {
+  --infosection-bg: #234534; /* dark green */
+  --infosection-sub: #f0d9c6; /* warm subtitle */
+  --infosection-copy: #e8efe9; /* light paragraph copy */
+  --infosection-icon: #cfe9d6; /* light icon color */
+}
+
+/* Force curve fills (again ensures footer/infosection shapes render white) */
+.infosection-top-curve path,
+.infosection-bottom-curve path {
+  fill: #ffffff;
+  shape-rendering: geometricPrecision;
+}
+
+/* Drop shadow so curves appear raised */
+.curve-shadow svg {
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.12));
+}
+
+/* Card shadow */
+.shadow-card {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Footer top curve rules (ensures visible white curve above green) ---------- */
+.footer-top-curve path {
+  fill: #ffffff;
+  shape-rendering: geometricPrecision;
+}
+.footer-top-curve {
+  display: block;
+  pointer-events: none;
+}
+
+/* Slight extra safety: allow footer curve to overflow its container so it can overlap previous section */
+footer {
+  overflow: visible;
+}
+
+/* Responsive fixes */
+@media (max-width: 640px) {
+  .curve-shadow svg {
+    height: 56px !important;
+  }
+}
+@media (max-width: 420px) {
+  .relative img {
+    width: 200px !important;
+    height: 220px !important;
+    transform: none !important;
+    left: 0 !important;
+  }
+}
+/* ---------- Footer top curve (fix) ---------- */
+/* ensures footer curve is visible above previous content and looks smooth */
+.footer-top-curve path {
+  fill: #ffffff;
+  shape-rendering: geometricPrecision;
+}
+
+/* make sure the top curve's drop shadow is visible and natural */
+.footer-top-curve {
+  display: block;
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.12));
+  pointer-events: none;
+}
+
+/* allow the SVG to overlap the previous section cleanly at many breakpoints */
+@media (max-width: 768px) {
+  .footer-top-curve {
+    height: 120px;
+  }
+}
+
+/* safety: keep footer overflow visible so curve is not clipped */
+footer {
+  overflow: visible;
+}
+
+/* ---------- Footer curve: final, responsive rules ---------- */
+
+/* wrapper positioned so the SVG overlaps the previous section */
+.footer-curve-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: -120px; /* default desktop overlap */
+  z-index: 10; /* above previous content */
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* svg sizing + shadow */
+.footer-top-curve {
+  display: block;
+  width: 100%;
+  height: 220px; /* desktop height */
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.12));
+}
+
+/* ensure the path fills white (so it cuts into whatever is above) */
+.footer-top-curve path {
+  fill: #ffffff;
+  shape-rendering: geometricPrecision;
+}
+
+/* footer content padding — keep content below the curve */
+.footer-content {
+  padding-top: 120px; /* roughly half the SVG height; matches wrapper top */
+  overflow: visible;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .footer-curve-wrapper {
+    top: -96px;
+  }
+  .footer-top-curve {
+    height: 180px;
+  }
+  .footer-content {
+    padding-top: 96px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .footer-curve-wrapper {
+    top: -64px;
+  }
+  .footer-top-curve {
+    height: 120px;
+  }
+  .footer-content {
+    padding-top: 64px;
+  }
+}
+
+/* Safety: keep footer overflow visible so the curve never clips */
+footer {
+  overflow: visible;
+}
+
+/* ---------- Header / hero fixes ---------- */
+.site-header {
+  position: fixed; /* keep header on top */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px; /* adjust if your header is taller */
+  display: flex;
+  align-items: center;
+  z-index: 60; /* MUST be > hero curves */
+  padding: 0 20px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  background: transparent; /* let hero show through */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* when we want a solid header (e.g., on scroll), you can toggle .solid */
+.site-header.solid {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+/* header elements inside */
+.site-header .logo {
+  font-weight: 700;
+  font-family: "Georgia", serif;
+  color: #fff;
+}
+.site-header .nav a {
+  color: rgba(255, 255, 255, 0.95);
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* make sure SVG curves don't overlap header */
+.curve-divider {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* give hero a top offset equal to header height to avoid overlap */
+.page-hero {
+  padding-top: 92px; /* header height + small gap */
+  padding-bottom: 56px;
+}
+
+/* hero title contrast */
+.page-hero .hero-title {
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* rounded product cards + subtle shadow used across pages */
+.product-card {
+  background: var(--card, #fff);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(15, 15, 15, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(15, 15, 15, 0.12);
+}
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* feature grid */
+.features-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* CTA */
+.section-cta {
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .site-header {
+    height: 64px;
+  }
+  .page-hero {
+    padding-top: 84px;
+    padding-bottom: 40px;
+  }
+  .product-card img {
+    height: 160px;
+  }
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  z-index: 60;
+  padding: 0;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  background: transparent;
+}
+
+.site-header.solid {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 6px 18px rgba(15, 15, 15, 0.08);
+  color: #163423;
+}
+/* smooth header transitions & glass effect */
+.site-header {
+  transition: background-color 300ms ease, box-shadow 300ms ease,
+    backdrop-filter 300ms ease;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+}
+
+/* when we want the translucent glass state on home top */
+.site-header--glass {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  /* fallback background — Tailwind's bg-white/30 also applied */
+  background-color: rgba(255, 255, 255, 0.32);
+}
+/* Reserve space for fixed header so content doesn't sit beneath it */
+body {
+  padding-top: 72px; /* same value as header height */
+}
+
+/* Optional: small tweak to make header visually crisp */
+.site-header {
+  transition: box-shadow 200ms ease, background-color 200ms ease;
+}
+/* Force header to stay solid and prevent leftover glass states */
+.site-header {
+  background-color: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transition: box-shadow 200ms ease, background-color 200ms ease;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: all 0.6s cubic-bezier(0.2, 0.9, 0.22, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
