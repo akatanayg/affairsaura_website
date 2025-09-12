@@ -2,9 +2,9 @@
   "name": "affairsaura",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
+   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
+    "build": "vite build --outDir dist",
     "preview": "vite preview"
   },
   "dependencies": {
