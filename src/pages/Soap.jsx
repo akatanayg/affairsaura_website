@@ -63,15 +63,6 @@ export default function Soap() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "20px",
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
           centerMode: false,
           arrows: true,
           dots: true,
@@ -142,7 +133,7 @@ export default function Soap() {
           <h3 className="text-2xl text-center text-[#16422f] font-semibold mb-8">
             Our Collection
           </h3>
-          <div className="relative mx-4 md:mx-0">
+          <div className="relative px-4 md:px-0">
             <Slider {...sliderSettings}>
               {PRODUCTS.soap.map((p) => (
                 <div key={p.id} className="px-2 md:px-3">
@@ -275,7 +266,9 @@ export default function Soap() {
                 className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
-              <h4 className="mt-3 font-semibold text-[#16422f]">Honey & Aloevera Soap</h4>
+              <h4 className="mt-3 font-semibold text-[#16422f]">
+                Honey & Aloevera Soap
+              </h4>
               <p className="mt-1 text-sm text-[#3f6b53]">₹249</p>
             </div>
 
@@ -299,9 +292,7 @@ export default function Soap() {
                 className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
-              <h4 className="mt-3 font-semibold text-[#16422f]">
-                Lemon Soap
-              </h4>
+              <h4 className="mt-3 font-semibold text-[#16422f]">Lemon Soap</h4>
               <p className="mt-1 text-sm text-[#3f6b53]">₹299</p>
             </div>
           </div>

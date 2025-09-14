@@ -63,15 +63,6 @@ export default function Chocolate() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "20px",
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
           centerMode: false,
           arrows: true,
           dots: true,
@@ -120,8 +111,8 @@ export default function Chocolate() {
             Crafted Elegance
           </h2>
           <p className="mt-4 text-[#6b5449]">
-            Single-origin truffles, and curated flavors –
-            made with ethically sourced chocolate and delicate craftsmanship.
+            Single-origin truffles, and curated flavors – made with ethically
+            sourced chocolate and delicate craftsmanship.
           </p>
         </div>
       </section>
@@ -131,7 +122,12 @@ export default function Chocolate() {
         <div className="container max-w-3xl text-center">
           <h3 className="text-2xl text-white font-semibold">Our Story</h3>
           <p className="mt-4 text-white">
-            At Chocolate Affairs, we celebrate life’s sweetest moments with our wide range of homemade chocolates. From plain, dark, milk, and white chocolates to flavored delights, center-filled surprises, and elegant bars, every creation is made to bring joy. Whether it’s a birthday, anniversary, festival, or special occasion, our chocolates are crafted to make memories sweeter.
+            At Chocolate Affairs, we celebrate life’s sweetest moments with our
+            wide range of homemade chocolates. From plain, dark, milk, and white
+            chocolates to flavored delights, center-filled surprises, and
+            elegant bars, every creation is made to bring joy. Whether it’s a
+            birthday, anniversary, festival, or special occasion, our chocolates
+            are crafted to make memories sweeter.
           </p>
         </div>
       </section>
@@ -142,7 +138,7 @@ export default function Chocolate() {
           <h3 className="text-2xl text-center text-[#3a2a24] font-semibold mb-8">
             Our Collection
           </h3>
-          <div className="relative mx-4 md:mx-0">
+          <div className="relative px-4 md:px-0">
             <Slider {...sliderSettings}>
               {PRODUCTS.chocolate.map((p) => (
                 <div key={p.id} className="px-2 md:px-3">

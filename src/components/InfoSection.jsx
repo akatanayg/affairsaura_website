@@ -48,7 +48,7 @@ export default function InfoSection() {
             <p className="mt-6 text-sm sm:text-base text-[var(--infosection-copy)] leading-relaxed text-justify">
               SOAP Affairs and Chocolate Affairs are born from a passion for
               purity, wellness, and joy. SOAP Affairs offers handmade organic
-              soaps enriched with Ayurvedic herbs — 100% vegetarian, natural,
+              soaps enriched with Ayurvedic herbs - 100% vegetarian, natural,
               and crafted in many varieties to nurture your skin.
             </p>
 
@@ -64,14 +64,20 @@ export default function InfoSection() {
           <div className="flex justify-center md:justify-end items-center relative pl-2 md:pl-6">
             <div className="relative w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px]">
               {/* back white card */}
-              <div
+              {/* <div
                 className="absolute left-0 top-6 w-[220px] sm:w-[260px] md:w-[300px] h-[260px] sm:h-[300px] md:h-[340px] bg-white rounded-2xl shadow-card transform -rotate-3 md:-rotate-2"
                 aria-hidden
+              /> */}
+              <img
+                src="diwalipackc7.jpg"
+                alt="Product preview"
+                className="absolute left-0 top-6 w-[220px] sm:w-[260px] md:w-[300px] h-[260px] sm:h-[300px] md:h-[340px] bg-white rounded-2xl shadow-card transform -rotate-3 md:-rotate-2"
+                style={{ boxShadow: "0 22px 44px rgba(0,0,0,0.18)" }}
               />
 
               {/* front image card */}
               <img
-                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=60&auto=format&fit=crop"
+                src="honeyaloevera.jpg"
                 alt="Product preview"
                 className="relative block w-[220px] sm:w-[260px] md:w-[320px] h-[260px] sm:h-[300px] md:h-[340px] object-cover rounded-2xl shadow-xl transform rotate-3 md:rotate-4 translate-x-6 md:translate-x-10"
                 style={{ boxShadow: "0 22px 44px rgba(0,0,0,0.18)" }}
