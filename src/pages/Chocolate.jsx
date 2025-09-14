@@ -111,7 +111,7 @@ export default function Chocolate() {
             Crafted Elegance
           </h2>
           <p className="mt-4 text-[#6b5449]">
-            Single-origin truffles, and curated flavors – made with ethically
+            Single-origin truffles, and curated flavors — made with ethically
             sourced chocolate and delicate craftsmanship.
           </p>
         </div>
@@ -122,10 +122,10 @@ export default function Chocolate() {
         <div className="container max-w-3xl text-center">
           <h3 className="text-2xl text-white font-semibold">Our Story</h3>
           <p className="mt-4 text-white">
-            At Chocolate Affairs, we celebrate life’s sweetest moments with our
+            At Chocolate Affairs, we celebrate life's sweetest moments with our
             wide range of homemade chocolates. From plain, dark, milk, and white
             chocolates to flavored delights, center-filled surprises, and
-            elegant bars, every creation is made to bring joy. Whether it’s a
+            elegant bars, every creation is made to bring joy. Whether it's a
             birthday, anniversary, festival, or special occasion, our chocolates
             are crafted to make memories sweeter.
           </p>
@@ -138,12 +138,12 @@ export default function Chocolate() {
           <h3 className="text-2xl text-center text-[#3a2a24] font-semibold mb-8">
             Our Collection
           </h3>
-          <div className="relative px-4 md:px-0">
+          <div className="relative">
             <Slider {...sliderSettings}>
               {PRODUCTS.chocolate.map((p) => (
-                <div key={p.id} className="px-2 md:px-3">
+                <div key={p.id} className="px-1 md:px-3">
                   <div
-                    className="product-card cursor-pointer mx-auto max-w-sm"
+                    className="product-card cursor-pointer mx-2 md:mx-auto max-w-sm"
                     onClick={() => setModalItem(p)}
                   >
                     <img
@@ -171,7 +171,7 @@ export default function Chocolate() {
         <div className="container max-w-2xl mx-auto">
           <h4 className="text-xl font-semibold">A Journey of Taste</h4>
           <p className="mt-3 text-sm">
-            Every piece tells a story – from farmer cooperatives to our artisan
+            Every piece tells a story — from farmer cooperatives to our artisan
             kitchens.
           </p>
         </div>
@@ -210,7 +210,7 @@ export default function Chocolate() {
               className="rounded-xl w-full h-48 object-cover"
             />
             <p className="mt-3 text-sm text-center">
-              "Rich, balanced, excellent texture." – P. M.
+              "Rich, balanced, excellent texture." — P. M.
             </p>
           </div>
         </div>
@@ -332,7 +332,7 @@ export default function Chocolate() {
               </h5>
               <p className="mt-1">
                 Keep them in a cool, dry place away from direct sunlight
-                (18–20°C is ideal).
+                (18—20°C is ideal).
               </p>
             </div>
           </div>

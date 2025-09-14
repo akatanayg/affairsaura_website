@@ -120,7 +120,7 @@ export default function Soap() {
         <div className="container max-w-3xl text-center">
           <h3 className="text-2xl font-semibold">Our Story</h3>
           <p className="mt-4">
-            Inspired by nature, each bar of soap is made with care – blending
+            Inspired by nature, each bar of soap is made with care — blending
             oils, herbs, and botanicals to bring you gentle skincare that's kind
             to both you and the earth.
           </p>
@@ -133,12 +133,12 @@ export default function Soap() {
           <h3 className="text-2xl text-center text-[#16422f] font-semibold mb-8">
             Our Collection
           </h3>
-          <div className="relative px-4 md:px-0">
+          <div className="relative">
             <Slider {...sliderSettings}>
               {PRODUCTS.soap.map((p) => (
-                <div key={p.id} className="px-2 md:px-3">
+                <div key={p.id} className="px-1 md:px-3">
                   <div
-                    className="product-card cursor-pointer mx-auto max-w-sm"
+                    className="product-card cursor-pointer mx-2 md:mx-auto max-w-sm"
                     onClick={() => setModalItem(p)}
                   >
                     <img
@@ -166,7 +166,7 @@ export default function Soap() {
         <div className="container max-w-2xl mx-auto">
           <h4 className="text-xl font-semibold">Inspired by Nature</h4>
           <p className="mt-3 text-sm">
-            Gentle, simple, and effective – like nature intended.
+            Gentle, simple, and effective — like nature intended.
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function Soap() {
               className="rounded-xl w-full h-48 object-cover"
             />
             <p className="mt-3 text-sm text-center">
-              "Soothing for my sensitive skin!" – N.S.
+              "Soothing for my sensitive skin!" — N.S.
             </p>
           </div>
           <div className="product-card">
@@ -194,7 +194,7 @@ export default function Soap() {
               className="rounded-xl w-full h-48 object-cover"
             />
             <p className="mt-3 text-sm text-center">
-              "Lovely scents and great lather." – R.M.
+              "Lovely scents and great lather." — R.M.
             </p>
           </div>
           <div className="product-card">
@@ -205,7 +205,7 @@ export default function Soap() {
             />
             <p className="mt-3 text-sm text-center">
               "Best soap collection for babies with varied and unique flavours."
-              – L.P.
+              — L.P.
             </p>
           </div>
         </div>
