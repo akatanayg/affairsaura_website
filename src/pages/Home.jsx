@@ -25,7 +25,7 @@ export default function Home() {
             {/* Chocolate Card */}
             <div className="relative group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
               <img
-                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400&q=60&auto=format&fit=crop"
+                src="bottlec.jpg"
                 alt="Chocolate"
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -45,7 +45,7 @@ export default function Home() {
             {/* Soap Card */}
             <div className="relative group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
               <img
-                src="https://images.unsplash.com/photo-1505691723518-36a00e6e9b16?w=1400&q=60&auto=format&fit=crop"
+                src="lemon.jpg"
                 alt="Soap"
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
               />

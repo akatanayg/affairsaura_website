@@ -2,7 +2,7 @@ import React from "react";
 
 export default function About() {
   return (
-    <main className="container py-16">
+    <main className="container py-16 ">
       {/* Title + Tagline */}
       <div className="text-center reveal visible">
         <h1 className="font-serif text-4xl md:text-5xl text-[#5b3a2e]">
@@ -18,7 +18,7 @@ export default function About() {
         Welcome to the world of{" "}
         <span className="font-semibold text-[#5b3a2e]">SOAP Affairs</span> and{" "}
         <span className="font-semibold text-[#5b3a2e]">Chocolate Affairs</span>{" "}
-        – two heartfelt brands created with a passion for purity, wellness, and
+        - two heartfelt brands created with a passion for purity, wellness, and
         indulgence.
       </p>
 
@@ -28,7 +28,7 @@ export default function About() {
           className="rounded-2xl shadow-md h-[320px]"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1603205414929-4d7f6e2f19a0?w=800&q=50&auto=format&fit=crop)",
+              "url(lemon.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -58,7 +58,7 @@ export default function About() {
           className="md:order-2 rounded-2xl shadow-md h-[320px]"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1606312619347-ffaf0f9093d6?w=800&q=50&auto=format&fit=crop)",
+              "url(bottlec.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -70,7 +70,7 @@ export default function About() {
           <p className="text-[#8b857b] mt-3 leading-relaxed">
             We celebrate life’s sweetest moments with our wide range of homemade
             chocolates. From plain, dark, milk, and white chocolates to flavored
-            delights, center-filled surprises, and elegant bars — every creation
+            delights, center-filled surprises, and elegant bars - every creation
             is made to bring joy. Be it a{" "}
             <span className="text-[#a66a4e] font-medium">birthday</span>,{" "}
             <span className="text-[#a66a4e] font-medium">anniversary</span>,{" "}

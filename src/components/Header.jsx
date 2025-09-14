@@ -20,16 +20,16 @@ export default function Header() {
 
   const navLinks = [
     { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
     { path: "/chocolate", label: "Chocolate" },
     { path: "/soap", label: "Soap" },
-    { path: "/about", label: "About Us" },
-    { path: "/contact", label: "Contact" },
+    { path: "/contact", label: "Contact Us" },
   ];
 
   return (
     <>
       {/* Fixed top header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#fdf9f0]/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo Section */}
@@ -42,7 +42,7 @@ export default function Header() {
                 <img
                   src="/logo.png"
                   alt="AffairsAura Logo"
-                  className="h-10 w-auto md:h-12 object-contain"
+                  className="h-20 w-auto md:h-24 object-contain"
                 />
               </Link>
             </div>
@@ -120,7 +120,7 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="AffairsAura Logo"
-                className="h-8 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </Link>
 
@@ -160,7 +160,7 @@ export default function Header() {
           <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-100">
             <div className="text-center">
               <p className="text-sm text-gray-500 mb-2">Made with care</p>
-              <p className="text-xs text-gray-400">AffairsAura</p>
+              <p className="text-xs text-gray-400">Affair Aura</p>
             </div>
           </div>
         </div>

@@ -120,8 +120,8 @@ export default function Chocolate() {
             Crafted Elegance
           </h2>
           <p className="mt-4 text-[#6b5449]">
-            Small-batch bonbons, single-origin truffles, and curated flavors –
-            made with ethically sourced cocoa and delicate craftsmanship.
+            Single-origin truffles, and curated flavors –
+            made with ethically sourced chocolate and delicate craftsmanship.
           </p>
         </div>
       </section>
@@ -131,9 +131,7 @@ export default function Chocolate() {
         <div className="container max-w-3xl text-center">
           <h3 className="text-2xl text-white font-semibold">Our Story</h3>
           <p className="mt-4 text-white">
-            From humble beginnings in a small kitchen, our passion for cacao has
-            grown into a craft that celebrates farmers, flavors, and families.
-            Each piece of chocolate is a tribute to tradition and innovation.
+            At Chocolate Affairs, we celebrate life’s sweetest moments with our wide range of homemade chocolates. From plain, dark, milk, and white chocolates to flavored delights, center-filled surprises, and elegant bars, every creation is made to bring joy. Whether it’s a birthday, anniversary, festival, or special occasion, our chocolates are crafted to make memories sweeter.
           </p>
         </div>
       </section>

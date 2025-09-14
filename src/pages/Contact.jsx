@@ -3,7 +3,7 @@ import React from "react";
 export default function Contact() {
   return (
     <main
-      className="py-20 min-h-screen flex items-center justify-center"
+      className="py-20 min-h-screen flex items-center justify-center bg-[#fdf9f0]"
       style={{ backgroundColor: "#fd9f0" }}
     >
       <div className="bg-white rounded-2xl shadow-lg p-10 max-w-xl w-full text-center">
@@ -28,7 +28,7 @@ export default function Contact() {
           <p className="text-[#5b3a2e] font-semibold mt-6">✉️ Email</p>
           <p className="text-[#8b857b]">
             <a href="mailto:hello@affairsaura.com" className="underline">
-              info@affairsaura.com
+              hello@affairsaura.com
             </a>
           </p>
         </div>
