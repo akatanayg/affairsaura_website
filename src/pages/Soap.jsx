@@ -334,7 +334,7 @@ export default function Soap() {
         </div>
       </section>
 
-      {/* MODAL */}
+      
       <ProductModal item={modalItem} onClose={() => setModalItem(null)} />
     </main>
   );
