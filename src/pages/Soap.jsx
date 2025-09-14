@@ -118,9 +118,9 @@ export default function Soap() {
         </div>
         <img
           loading="lazy"
-          src="/images/soap-stack.jpg"
+          src="charcoaldetan.jpg"
           alt="Soaps"
-          className="rounded-2xl shadow-lg w-full h-auto"
+          className="rounded-2xl shadow-lg w-84 h-84"
         />
       </section>
 
@@ -188,7 +188,7 @@ export default function Soap() {
         <div className="grid md:grid-cols-3 gap-6 mt-6">
           <div className="product-card">
             <img
-              src="/images/soap-testi1.jpg"
+              src="lemon.jpg"
               alt="Customer review"
               className="rounded-xl w-full h-48 object-cover"
             />
@@ -198,7 +198,7 @@ export default function Soap() {
           </div>
           <div className="product-card">
             <img
-              src="/images/soap-testi2.jpg"
+              src="organicscrub.jpg"
               alt="Customer review"
               className="rounded-xl w-full h-48 object-cover"
             />
@@ -235,22 +235,22 @@ export default function Soap() {
               onClick={() =>
                 setModalItem({
                   id: "sb1",
-                  title: "Lavender Calm",
+                  title: "Neem Tulsi",
                   price: "₹249",
-                  image: "/images/soap-card1.jpg",
+                  image: "neemtulsi.jpg",
                   desc: "A soothing bar infused with lavender oil for relaxation.",
                   buy: "https://www.amazon.in/",
                 })
               }
             >
               <img
-                src="/images/soap-card1.jpg"
-                alt="Lavender Calm"
+                src="neemtulsi.jpg"
+                alt="Neem Tulsi Soap"
                 className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
               <h4 className="mt-3 font-semibold text-[#16422f]">
-                Lavender Calm
+                Neem Tulsi Soap
               </h4>
               <p className="mt-1 text-sm text-[#3f6b53]">₹249</p>
             </div>
@@ -261,21 +261,21 @@ export default function Soap() {
               onClick={() =>
                 setModalItem({
                   id: "sb2",
-                  title: "Mint Fresh",
+                  title: "Honey Aloevera Soap",
                   price: "₹249",
-                  image: "/images/soap-card2.jpg",
+                  image: "honeyaloevera.jpg",
                   desc: "Refreshing mint soap with a cooling touch.",
                   buy: "https://www.amazon.in/",
                 })
               }
             >
               <img
-                src="/images/soap-card2.jpg"
+                src="honeyaloevera.jpg"
                 alt="Mint Fresh"
                 className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
-              <h4 className="mt-3 font-semibold text-[#16422f]">Mint Fresh</h4>
+              <h4 className="mt-3 font-semibold text-[#16422f]">Honey & Aloevera Soap</h4>
               <p className="mt-1 text-sm text-[#3f6b53]">₹249</p>
             </div>
 
@@ -285,22 +285,22 @@ export default function Soap() {
               onClick={() =>
                 setModalItem({
                   id: "sb3",
-                  title: "Honey Aloe Vera",
+                  title: "Lemon Soap",
                   price: "₹299",
-                  image: "/images/honeyaloevera.jpg",
+                  image: "lemon.jpg",
                   desc: "Moisturizing soap made with natural honey and aloe vera.",
                   buy: "https://www.amazon.in/",
                 })
               }
             >
               <img
-                src="/images/honeyaloevera.jpg"
-                alt="Honey Aloe Vera"
+                src="lemon.jpg"
+                alt="Lemon Soap"
                 className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
               />
               <h4 className="mt-3 font-semibold text-[#16422f]">
-                Honey Aloe Vera
+                Lemon Soap
               </h4>
               <p className="mt-1 text-sm text-[#3f6b53]">₹299</p>
             </div>
