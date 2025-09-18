@@ -7,7 +7,7 @@ export const PRODUCTS = {
   chocolate: [
     { id: "c1", title: "Bhai Dooj Chocolate Pack", price: "₹499", image: "/bhaidoojc1.jpg" },
     { id: "c2", title: "Bhai Dooj Chocolate Pack", price: "₹499", image: "/bhaidoojc2.jpg" },
-    { id: "c3", title: "Bottle Chocolate", price: "₹699", image: "/bottlec.jpg" },
+    { id: "c3", title: "Rum Chocolate (Adult only)", price: "₹699", image: "/bottlec.jpg" },
     { id: "c4", title: "Candle Pack Chocolate", price: "₹799", image: "/candlepackc.jpg" },
     { id: "c5", title: "Combo Chocolate", price: "₹899", image: "/comboc.jpg" },
     { id: "c6", title: "Combo Pack 1 Chocolate", price: "₹999", image: "/combopack1c.jpg" },
