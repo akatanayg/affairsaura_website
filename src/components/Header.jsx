@@ -42,7 +42,7 @@ export default function Header() {
                 <img
                   src="/logo.png"
                   alt="AffairsAura Logo"
-                  className="h-20 w-auto md:h-16 object-contain"
+                  className="h-16 w-auto md:h-16 object-contain"
                 />
               </Link>
             </div>
