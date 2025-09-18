@@ -474,3 +474,16 @@ body {
   .slick-list { overflow: visible; margin: 0 -8px; }
   .slick-slide { padding: 0 8px; }
 }
+
+
+@media (max-width: 400px) {
+  .slick-list { margin: 0 -4px; }
+  .slick-slide { padding: 0 4px; }
+}
+
+
+/* ---- Ultra-small phone width tweaks (~375px) ---- */
+@media (max-width: 400px) {
+  .slick-list { margin: 0 -6px; }
+  .slick-slide { padding: 0 6px; }
+}

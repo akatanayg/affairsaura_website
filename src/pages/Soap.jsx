@@ -10,7 +10,9 @@ import "slick-carousel/slick/slick-theme.css";
 function NextArrow({ onClick }) {
   return (
     <button
-      type="button" aria-label="Next" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
+      type="button"
+      aria-label="Next"
+      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
       onClick={onClick}
     >
       ▶
@@ -21,7 +23,9 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <button
-      type="button" aria-label="Previous" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
+      type="button"
+      aria-label="Previous"
+      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
       onClick={onClick}
     >
       ◀
@@ -33,12 +37,15 @@ export default function Soap() {
   useEffect(() => {
     document.title = "Soap Affairs — Natural Handmade Soaps | AffairAura";
     const d = document.querySelector('meta[name="description"]');
-    if (d) d.setAttribute("content", "Gentle, natural soaps infused with botanicals and essential oils. Ideal for all skin types and gifting.");
+    if (d)
+      d.setAttribute(
+        "content",
+        "Gentle, natural soaps infused with botanicals and essential oils. Ideal for all skin types and gifting."
+      );
   }, []);
   const [modalItem, setModalItem] = useState(null);
 
   const sliderSettings = {
-    adaptiveHeight: true,
     dots: true,
     infinite: true,
     speed: 500,
@@ -47,22 +54,15 @@ export default function Soap() {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     autoplay: false,
-    centerMode: false,
-    variableWidth: false,
+    adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
+        settings: { slidesToShow: 3, slidesToScroll: 1 },
       },
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+        settings: { slidesToShow: 2, slidesToScroll: 1 },
       },
       {
         breakpoint: 768,
@@ -70,9 +70,31 @@ export default function Soap() {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: '16px',
+          centerPadding: "16px",
           arrows: false,
-          dots: true
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "12px",
+          arrows: false,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "8px",
+          arrows: false,
+          dots: true,
         },
       },
     ],
@@ -341,7 +363,6 @@ export default function Soap() {
         </div>
       </section>
 
-      
       <ProductModal item={modalItem} onClose={() => setModalItem(null)} />
     </main>
   );

@@ -10,7 +10,9 @@ import "slick-carousel/slick/slick-theme.css";
 function NextArrow({ onClick }) {
   return (
     <button
-      type="button" aria-label="Next" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
+      type="button"
+      aria-label="Next"
+      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
       onClick={onClick}
     >
       ▶
@@ -21,7 +23,9 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <button
-      type="button" aria-label="Previous" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
+      type="button"
+      aria-label="Previous"
+      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
       onClick={onClick}
     >
       ◀
@@ -30,15 +34,19 @@ function PrevArrow({ onClick }) {
 }
 
 export default function Chocolate() {
+  const [modalItem, setModalItem] = useState(null);
+
   useEffect(() => {
     document.title = "Chocolate Affairs — Artisan Chocolates | AffairAura";
     const d = document.querySelector('meta[name="description"]');
-    if (d) d.setAttribute("content", "Explore artisan chocolates: dark, milk, white, flavored and gift packs. Ethically sourced and handcrafted.");
+    if (d)
+      d.setAttribute(
+        "content",
+        "Explore artisan chocolates: dark, milk, white, flavored and gift packs. Ethically sourced and handcrafted."
+      );
   }, []);
-  const [modalItem, setModalItem] = useState(null);
 
   const sliderSettings = {
-    adaptiveHeight: true,
     dots: true,
     infinite: true,
     speed: 500,
@@ -47,22 +55,15 @@ export default function Chocolate() {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     autoplay: false,
-    centerMode: false,
-    variableWidth: false,
+    adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
+        settings: { slidesToShow: 3, slidesToScroll: 1 },
       },
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+        settings: { slidesToShow: 2, slidesToScroll: 1 },
       },
       {
         breakpoint: 768,
@@ -70,9 +71,31 @@ export default function Chocolate() {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: '16px',
+          centerPadding: "16px",
           arrows: false,
-          dots: true
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "12px",
+          arrows: false,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "8px",
+          arrows: false,
+          dots: true,
         },
       },
     ],
