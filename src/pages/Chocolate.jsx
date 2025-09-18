@@ -44,7 +44,7 @@ export default function Chocolate() {
   const minSwipeDistance = 50;
 
   useEffect(() => {
-    document.title = "Chocolate Affairs — Artisan Chocolates | AffairAura";
+    document.title = "Chocolate Affairs | Artisan Chocolates | AffairAura";
     const d = document.querySelector('meta[name="description"]');
     if (d)
       d.setAttribute(

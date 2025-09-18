@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact — AffairAura";
+    document.title = "Contact | AffairAura";
     const d = document.querySelector('meta[name="description"]');
     if (d) d.setAttribute("content", "Get in touch with AffairAura for orders, custom gifts, and inquiries.");
   }, []);

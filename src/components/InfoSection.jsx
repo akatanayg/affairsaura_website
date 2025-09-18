@@ -27,7 +27,6 @@ export default function InfoSection() {
           />
         </svg>
       </div>
-      
 
       {/* Dark green content block */}
       <div className="relative z-30 infosection-bg">
@@ -42,7 +41,7 @@ export default function InfoSection() {
             </h2>
 
             <p className="mt-3 text-sm sm:text-base font-medium text-[var(--infosection-sub)]">
-              “SOAP Affairs for your skin, Chocolate Affairs for your soul”
+              "SOAP Affairs for your skin, Chocolate Affairs for your soul"
             </p>
 
             <p className="mt-6 text-sm sm:text-base text-[var(--infosection-copy)] leading-relaxed text-justify">
@@ -53,33 +52,40 @@ export default function InfoSection() {
             </p>
 
             <p className="mt-4 text-sm sm:text-base text-[var(--infosection-copy)] leading-relaxed text-justify">
-              Chocolate Affairs celebrates life’s sweetest moments with
+              Chocolate Affairs celebrates life's sweetest moments with
               carefully curated chocolate selections and gift boxes. Together,
               they reflect our belief that care and happiness can be
               handcrafted, adding love and wellness to everyday life.
             </p>
           </div>
 
-          {/* Right images (cards) */}
-          <div className="flex justify-center md:justify-end items-center relative pl-2 md:pl-6">
-            <div className="relative w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px]">
-              {/* back white card */}
-              {/* <div
-                className="absolute left-0 top-6 w-[220px] sm:w-[260px] md:w-[300px] h-[260px] sm:h-[300px] md:h-[340px] bg-white rounded-2xl shadow-card transform -rotate-3 md:-rotate-2"
-                aria-hidden
-              /> */}
+          {/* Right images - Responsive layout */}
+          <div className="flex justify-center md:justify-end items-center relative">
+            {/* Mobile: Single centered image */}
+            <div className="block md:hidden">
+              <img
+                src="/honeyaloevera.jpg"
+                alt="Natural soap product"
+                className="w-72 h-72 object-cover rounded-2xl shadow-xl mx-auto"
+                style={{ boxShadow: "0 22px 44px rgba(0,0,0,0.18)" }}
+              />
+            </div>
+
+            {/* Desktop: Overlapping images */}
+            <div className="hidden md:block relative w-[320px] lg:w-[440px]">
+              {/* Background image */}
               <img
                 src="/diwalipackc7.jpg"
-                alt="Product preview"
-                className="absolute left-0 top-6 w-[220px] sm:w-[260px] md:w-[300px] h-[260px] sm:h-[300px] md:h-[340px] bg-white rounded-2xl shadow-card transform -rotate-3 md:-rotate-2"
+                alt="Chocolate gift pack"
+                className="absolute left-0 top-6 w-[260px] lg:w-[300px] h-[300px] lg:h-[340px] object-cover rounded-2xl shadow-card transform -rotate-2"
                 style={{ boxShadow: "0 22px 44px rgba(0,0,0,0.18)" }}
               />
 
-              {/* front image card */}
+              {/* Foreground image */}
               <img
                 src="/honeyaloevera.jpg"
-                alt="Product preview"
-                className="relative block w-[220px] sm:w-[260px] md:w-[320px] h-[260px] sm:h-[300px] md:h-[340px] object-cover rounded-2xl shadow-xl transform rotate-3 md:rotate-4 translate-x-6 md:translate-x-10"
+                alt="Natural soap product"
+                className="relative block w-[280px] lg:w-[320px] h-[300px] lg:h-[340px] object-cover rounded-2xl shadow-xl transform rotate-4 translate-x-10"
                 style={{ boxShadow: "0 22px 44px rgba(0,0,0,0.18)" }}
               />
             </div>
@@ -88,22 +94,22 @@ export default function InfoSection() {
 
         {/* Values row */}
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-6 pb-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center items-start">
-            <div>
-              <Leaf className="mx-auto text-[var(--infosection-icon)] h-8 w-8 mb-3" />
-              <p className="font-semibold text-[var(--infosection-copy)]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 text-center items-start">
+            <div className="flex flex-col items-center">
+              <Leaf className="text-[var(--infosection-icon)] h-10 w-10 sm:h-8 sm:w-8 mb-3" />
+              <p className="font-semibold text-[var(--infosection-copy)] text-base sm:text-sm">
                 100% Natural
               </p>
             </div>
-            <div>
-              <Heart className="mx-auto text-[var(--infosection-icon)] h-8 w-8 mb-3" />
-              <p className="font-semibold text-[var(--infosection-copy)]">
+            <div className="flex flex-col items-center">
+              <Heart className="text-[var(--infosection-icon)] h-10 w-10 sm:h-8 sm:w-8 mb-3" />
+              <p className="font-semibold text-[var(--infosection-copy)] text-base sm:text-sm">
                 Handcrafted with Love
               </p>
             </div>
-            <div>
-              <Gift className="mx-auto text-[var(--infosection-icon)] h-8 w-8 mb-3" />
-              <p className="font-semibold text-[var(--infosection-copy)]">
+            <div className="flex flex-col items-center">
+              <Gift className="text-[var(--infosection-icon)] h-10 w-10 sm:h-8 sm:w-8 mb-3" />
+              <p className="font-semibold text-[var(--infosection-copy)] text-base sm:text-sm">
                 Perfect for Gifting
               </p>
             </div>

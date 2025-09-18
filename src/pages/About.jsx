@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 export default function About() {
   useEffect(() => {
-    document.title = "About — AffairAura";
+    document.title = "About Us | AffairAura";
     const d = document.querySelector('meta[name="description"]');
     if (d) d.setAttribute("content", "Our story: SOAP Affairs for your skin, Chocolate Affairs for your soul. Crafted with purity, wellness, and joy.");
   }, []);
