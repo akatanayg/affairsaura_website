@@ -35,6 +35,13 @@ function PrevArrow({ onClick }) {
 
 export default function Chocolate() {
   const [modalItem, setModalItem] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     document.title = "Chocolate Affairs — Artisan Chocolates | AffairAura";
@@ -44,7 +51,59 @@ export default function Chocolate() {
         "content",
         "Explore artisan chocolates: dark, milk, white, flavored and gift packs. Ethically sourced and handcrafted."
       );
+
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === PRODUCTS.chocolate.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? PRODUCTS.chocolate.length - 1 : prev - 1
+    );
+  };
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
+  // Auto-advance slides every 5 seconds on mobile
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [isMobile, currentSlide]);
 
   const sliderSettings = {
     dots: true,
@@ -158,52 +217,114 @@ export default function Chocolate() {
           <h3 className="text-2xl text-center text-[#3a2a24] font-semibold mb-8">
             Our Collection
           </h3>
-          <div className="mobile-carousel-wrapper">
-            <style jsx>{`
-              .mobile-carousel-wrapper .slick-list {
-                margin: 0 !important;
-                overflow: hidden !important;
-              }
-              .mobile-carousel-wrapper .slick-slide {
-                padding: 0 !important;
-              }
-              .mobile-carousel-wrapper .slick-track {
-                display: flex !important;
-              }
-              @media (max-width: 768px) {
-                .mobile-carousel-wrapper .slick-slide > div {
-                  width: 100% !important;
-                  padding: 0 16px !important;
-                }
-                .mobile-carousel-wrapper .slick-slide {
-                  width: 100% !important;
-                }
-              }
-            `}</style>
-            <Slider {...sliderSettings}>
-              {PRODUCTS.chocolate.map((p) => (
-                <div key={p.id}>
-                  <div
-                    className="product-card cursor-pointer mx-2"
-                    onClick={() => setModalItem(p)}
-                  >
-                    <img
-                      loading="lazy"
-                      src={p.image || "/images/choco-default.jpg"}
-                      alt={p.title}
-                      className="rounded-xl w-full h-48 md:h-56 object-cover"
+
+          {/* Mobile: Custom Smooth Carousel */}
+          {isMobile ? (
+            <div className="relative">
+              <div
+                className="overflow-hidden rounded-lg"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+              >
+                <div
+                  className="flex transition-all duration-500 ease-out"
+                  style={{
+                    transform: `translateX(-${currentSlide * 100}%)`,
+                    willChange: "transform",
+                  }}
+                >
+                  {PRODUCTS.chocolate.map((p, index) => (
+                    <div key={p.id} className="w-full flex-shrink-0 px-4">
+                      <div
+                        className="product-card cursor-pointer transform transition-transform duration-200 hover:scale-[1.02]"
+                        onClick={() => setModalItem(p)}
+                      >
+                        <img
+                          loading="lazy"
+                          src={p.image || "/images/choco-default.jpg"}
+                          alt={p.title}
+                          className="rounded-xl w-full h-48 object-cover"
+                        />
+                        <h4 className="mt-3 font-semibold text-center text-[#3a2a24]">
+                          {p.title}
+                        </h4>
+                        <div className="mt-2 text-sm text-[#8b857b] text-center">
+                          {p.price}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Navigation */}
+              <div className="flex justify-center items-center mt-6 space-x-4">
+                <button
+                  onClick={prevSlide}
+                  className="w-8 h-8 rounded-full bg-[#7b4c3a] text-white flex items-center justify-center shadow-md hover:bg-[#5a382a] transition-colors duration-200"
+                  aria-label="Previous product"
+                >
+                  <span className="text-sm">‹</span>
+                </button>
+
+                <div className="flex space-x-2">
+                  {PRODUCTS.chocolate.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        index === currentSlide
+                          ? "bg-[#7b4c3a] scale-110"
+                          : "bg-gray-300 hover:bg-gray-400"
+                      }`}
+                      onClick={() => setCurrentSlide(index)}
+                      aria-label={`Go to product ${index + 1}`}
                     />
-                    <h4 className="mt-3 font-semibold text-center text-[#3a2a24]">
-                      {p.title}
-                    </h4>
-                    <div className="mt-2 text-sm text-[#8b857b] text-center">
-                      {p.price}
+                  ))}
+                </div>
+
+                <button
+                  onClick={nextSlide}
+                  className="w-8 h-8 rounded-full bg-[#7b4c3a] text-white flex items-center justify-center shadow-md hover:bg-[#5a382a] transition-colors duration-200"
+                  aria-label="Next product"
+                >
+                  <span className="text-sm">›</span>
+                </button>
+              </div>
+
+              {/* Progress indicator */}
+              <div className="mt-3 text-center text-xs text-[#8b857b]">
+                {currentSlide + 1} of {PRODUCTS.chocolate.length}
+              </div>
+            </div>
+          ) : (
+            /* Desktop: React Slick */
+            <div className="relative">
+              <Slider {...sliderSettings}>
+                {PRODUCTS.chocolate.map((p) => (
+                  <div key={p.id}>
+                    <div
+                      className="product-card cursor-pointer mx-2"
+                      onClick={() => setModalItem(p)}
+                    >
+                      <img
+                        loading="lazy"
+                        src={p.image || "/images/choco-default.jpg"}
+                        alt={p.title}
+                        className="rounded-xl w-full h-48 md:h-56 object-cover"
+                      />
+                      <h4 className="mt-3 font-semibold text-center text-[#3a2a24]">
+                        {p.title}
+                      </h4>
+                      <div className="mt-2 text-sm text-[#8b857b] text-center">
+                        {p.price}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
+                ))}
+              </Slider>
+            </div>
+          )}
         </div>
       </section>
 
