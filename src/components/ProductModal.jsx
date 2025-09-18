@@ -59,12 +59,12 @@ export default function ProductModal({ item, onClose }) {
               {/* Action buttons */}
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <a
-                  href={item.buy || "https://www.amazon.in/"}
+                  href={item.buy || "https://www.meesho.com/"}
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 px-4 py-3 rounded-lg bg-[#5b3a2e] text-white font-semibold text-center hover:bg-[#4a2d23] transition-colors"
                 >
-                  Buy on Amazon
+                  Buy on Meesho
                 </a>
                 <button
                   onClick={onClose}

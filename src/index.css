@@ -464,3 +464,13 @@ body {
   opacity: 1;
   transform: none;
 }
+
+
+/* ---- Slick carousel mobile fixes ---- */
+.slick-track { display: flex !important; }
+.slick-slide { height: auto !important; }
+.slick-slide > div { height: 100%; }
+@media (max-width: 768px) {
+  .slick-list { overflow: visible; margin: 0 -8px; }
+  .slick-slide { padding: 0 8px; }
+}

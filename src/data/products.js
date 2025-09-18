@@ -39,7 +39,7 @@ export const PRODUCTS = {
     { id: "s9", title: "Papaya Soap", price: "₹249", image: "/papaya.jpg" },
     { id: "s10", title: "Potato Milk Soap", price: "₹249", image: "/potatomilk.jpg" },
     { id: "s11", title: "Rose Soap", price: "₹249", image: "/rose.jpg" },
-    { id: "s12", title: "Rose Purple Soap", price: "₹249", image: "/rose purple.jpg" },
+    { id: "s12", title: "Rose Purple Soap", price: "₹249", image: "/rose%20purple.jpg" },
     { id: "s13", title: "Lemon Soap", price: "₹249", image: "/lemon.jpg" },
     { id: "s14", title: "Lemon Rose Soap", price: "₹249", image: "/lemonrose.jpg" },
     { id: "s15", title: "Sandalwood Soap", price: "₹249", image: "/sandelwood.jpg" },

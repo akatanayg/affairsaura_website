@@ -69,7 +69,7 @@ export default function InfoSection() {
                 aria-hidden
               /> */}
               <img
-                src="diwalipackc7.jpg"
+                src="/diwalipackc7.jpg"
                 alt="Product preview"
                 className="absolute left-0 top-6 w-[220px] sm:w-[260px] md:w-[300px] h-[260px] sm:h-[300px] md:h-[340px] bg-white rounded-2xl shadow-card transform -rotate-3 md:-rotate-2"
                 style={{ boxShadow: "0 22px 44px rgba(0,0,0,0.18)" }}
@@ -77,7 +77,7 @@ export default function InfoSection() {
 
               {/* front image card */}
               <img
-                src="honeyaloevera.jpg"
+                src="/honeyaloevera.jpg"
                 alt="Product preview"
                 className="relative block w-[220px] sm:w-[260px] md:w-[320px] h-[260px] sm:h-[300px] md:h-[340px] object-cover rounded-2xl shadow-xl transform rotate-3 md:rotate-4 translate-x-6 md:translate-x-10"
                 style={{ boxShadow: "0 22px 44px rgba(0,0,0,0.18)" }}

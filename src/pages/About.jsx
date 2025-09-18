@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function About() {
+  useEffect(() => {
+    document.title = "About — AffairAura";
+    const d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute("content", "Our story: SOAP Affairs for your skin, Chocolate Affairs for your soul. Crafted with purity, wellness, and joy.");
+  }, []);
   return (
     <main className="container py-16 ">
       {/* Title + Tagline */}
@@ -28,7 +33,7 @@ export default function About() {
           className="rounded-2xl shadow-md h-[320px]"
           style={{
             backgroundImage:
-              "url(lemon.jpg)",
+              "url(/lemon.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -58,7 +63,7 @@ export default function About() {
           className="md:order-2 rounded-2xl shadow-md h-[320px]"
           style={{
             backgroundImage:
-              "url(bottlec.jpg)",
+              "url(/bottlec.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

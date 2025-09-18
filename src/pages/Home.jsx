@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../components/Hero";
 import InfoSection from "../components/InfoSection";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "AffairAura — Handmade Soaps & Artisan Chocolates";
+    const d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute("content", "Discover handmade organic soaps and artisan chocolates crafted with care. Ethical, small-batch products perfect for gifting and self-care.");
+  }, []);
   return (
     <>
       {/* Hero Section */}
@@ -26,7 +31,7 @@ export default function Home() {
             <div className="relative group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
               <div className="aspect-[4/3] md:aspect-[4/5] overflow-hidden">
                 <img
-                  src="bottlec.jpg"
+                  src="/bottlec.jpg"
                   alt="Chocolate"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -48,7 +53,7 @@ export default function Home() {
             <div className="relative group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
               <div className="aspect-[4/3] md:aspect-[4/5] overflow-hidden">
                 <img
-                  src="lemon.jpg"
+                  src="/lemon.jpg"
                   alt="Soap"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />

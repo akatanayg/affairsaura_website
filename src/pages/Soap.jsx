@@ -1,5 +1,5 @@
 // pages/Soap.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import ProductModal from "../components/ProductModal";
 import { PRODUCTS } from "../data/products";
@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 function NextArrow({ onClick }) {
   return (
     <button
-      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
+      type="button" aria-label="Next" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
       onClick={onClick}
     >
       ▶
@@ -21,7 +21,7 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <button
-      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
+      type="button" aria-label="Previous" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#3f7a58] text-white p-2 rounded-full shadow hover:bg-[#2b5a45] transition"
       onClick={onClick}
     >
       ◀
@@ -30,9 +30,15 @@ function PrevArrow({ onClick }) {
 }
 
 export default function Soap() {
+  useEffect(() => {
+    document.title = "Soap Affairs — Natural Handmade Soaps | AffairAura";
+    const d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute("content", "Gentle, natural soaps infused with botanicals and essential oils. Ideal for all skin types and gifting.");
+  }, []);
   const [modalItem, setModalItem] = useState(null);
 
   const sliderSettings = {
+    adaptiveHeight: true,
     dots: true,
     infinite: true,
     speed: 500,
@@ -63,9 +69,10 @@ export default function Soap() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: false,
-          arrows: true,
-          dots: true,
+          centerMode: true,
+          centerPadding: '16px',
+          arrows: false,
+          dots: true
         },
       },
     ],
@@ -109,7 +116,7 @@ export default function Soap() {
         </div>
         <img
           loading="lazy"
-          src="charcoaldetan.jpg"
+          src="/charcoaldetan.jpg"
           alt="Soaps"
           className="rounded-2xl shadow-lg w-84 h-84"
         />
@@ -136,9 +143,9 @@ export default function Soap() {
           <div className="relative">
             <Slider {...sliderSettings}>
               {PRODUCTS.soap.map((p) => (
-                <div key={p.id} className="px-1 md:px-3">
+                <div key={p.id} className="px-0 md:px-3">
                   <div
-                    className="product-card cursor-pointer mx-2 md:mx-auto max-w-sm"
+                    className="product-card cursor-pointer mx-2 md:mx-auto w-full"
                     onClick={() => setModalItem(p)}
                   >
                     <img
@@ -179,7 +186,7 @@ export default function Soap() {
         <div className="grid md:grid-cols-3 gap-6 mt-6">
           <div className="product-card">
             <img
-              src="lemon.jpg"
+              src="/lemon.jpg"
               alt="Customer review"
               className="rounded-xl w-full h-48 object-cover"
             />
@@ -189,7 +196,7 @@ export default function Soap() {
           </div>
           <div className="product-card">
             <img
-              src="organicscrub.jpg"
+              src="/organicscrub.jpg"
               alt="Customer review"
               className="rounded-xl w-full h-48 object-cover"
             />
@@ -235,7 +242,7 @@ export default function Soap() {
               }
             >
               <img
-                src="neemtulsi.jpg"
+                src="/neemtulsi.jpg"
                 alt="Neem Tulsi Soap"
                 className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
@@ -261,7 +268,7 @@ export default function Soap() {
               }
             >
               <img
-                src="honeyaloevera.jpg"
+                src="/honeyaloevera.jpg"
                 alt="Mint Fresh"
                 className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"
@@ -287,7 +294,7 @@ export default function Soap() {
               }
             >
               <img
-                src="lemon.jpg"
+                src="/lemon.jpg"
                 alt="Lemon Soap"
                 className="rounded-xl w-full h-48 object-cover"
                 loading="lazy"

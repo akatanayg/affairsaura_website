@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = "Contact — AffairAura";
+    const d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute("content", "Get in touch with AffairAura for orders, custom gifts, and inquiries.");
+  }, []);
   return (
     <main
       className="py-20 min-h-screen flex items-center justify-center bg-[#fdf9f0]"
-      style={{ backgroundColor: "#fd9f0" }}
+      style={{ backgroundColor: "#fdf9f0" }}
     >
       <div className="bg-white rounded-2xl shadow-lg p-10 max-w-xl w-full text-center">
         <h1 className="font-serif text-4xl text-[#5b3a2e] mb-6">Contact Us</h1>

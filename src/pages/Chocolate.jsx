@@ -1,5 +1,5 @@
 // pages/Chocolate.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import ProductModal from "../components/ProductModal";
 import { PRODUCTS } from "../data/products";
@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 function NextArrow({ onClick }) {
   return (
     <button
-      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
+      type="button" aria-label="Next" className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
       onClick={onClick}
     >
       ▶
@@ -21,7 +21,7 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <button
-      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
+      type="button" aria-label="Previous" className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#7b4c3a] text-white p-2 rounded-full shadow hover:bg-[#5a382a] transition"
       onClick={onClick}
     >
       ◀
@@ -30,9 +30,15 @@ function PrevArrow({ onClick }) {
 }
 
 export default function Chocolate() {
+  useEffect(() => {
+    document.title = "Chocolate Affairs — Artisan Chocolates | AffairAura";
+    const d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute("content", "Explore artisan chocolates: dark, milk, white, flavored and gift packs. Ethically sourced and handcrafted.");
+  }, []);
   const [modalItem, setModalItem] = useState(null);
 
   const sliderSettings = {
+    adaptiveHeight: true,
     dots: true,
     infinite: true,
     speed: 500,
@@ -63,9 +69,10 @@ export default function Chocolate() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: false,
-          arrows: true,
-          dots: true,
+          centerMode: true,
+          centerPadding: '16px',
+          arrows: false,
+          dots: true
         },
       },
     ],
@@ -141,9 +148,9 @@ export default function Chocolate() {
           <div className="relative">
             <Slider {...sliderSettings}>
               {PRODUCTS.chocolate.map((p) => (
-                <div key={p.id} className="px-1 md:px-3">
+                <div key={p.id} className="px-0 md:px-3">
                   <div
-                    className="product-card cursor-pointer mx-2 md:mx-auto max-w-sm"
+                    className="product-card cursor-pointer mx-2 md:mx-auto w-full"
                     onClick={() => setModalItem(p)}
                   >
                     <img
