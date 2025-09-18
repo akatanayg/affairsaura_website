@@ -70,30 +70,7 @@ export default function Chocolate() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "16px",
-          arrows: false,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "12px",
-          arrows: false,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 400,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "8px",
+          centerMode: false,
           arrows: false,
           dots: true,
         },
@@ -171,9 +148,9 @@ export default function Chocolate() {
           <div className="relative">
             <Slider {...sliderSettings}>
               {PRODUCTS.chocolate.map((p) => (
-                <div key={p.id} className="px-0 md:px-3">
+                <div key={p.id} className="px-2">
                   <div
-                    className="product-card cursor-pointer mx-2 md:mx-auto w-full"
+                    className="product-card cursor-pointer"
                     onClick={() => setModalItem(p)}
                   >
                     <img
