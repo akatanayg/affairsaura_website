@@ -55,15 +55,25 @@ export default function Chocolate() {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     autoplay: false,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     responsive: [
       {
         breakpoint: 1280,
-        settings: { slidesToShow: 3, slidesToScroll: 1 },
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: true,
+        },
       },
       {
         breakpoint: 1024,
-        settings: { slidesToShow: 2, slidesToScroll: 1 },
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: true,
+        },
       },
       {
         breakpoint: 768,
@@ -71,8 +81,11 @@ export default function Chocolate() {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: false,
+          centerPadding: "0px",
+          variableWidth: false,
           arrows: false,
           dots: true,
+          adaptiveHeight: false,
         },
       },
     ],
@@ -145,12 +158,33 @@ export default function Chocolate() {
           <h3 className="text-2xl text-center text-[#3a2a24] font-semibold mb-8">
             Our Collection
           </h3>
-          <div className="relative">
+          <div className="mobile-carousel-wrapper">
+            <style jsx>{`
+              .mobile-carousel-wrapper .slick-list {
+                margin: 0 !important;
+                overflow: hidden !important;
+              }
+              .mobile-carousel-wrapper .slick-slide {
+                padding: 0 !important;
+              }
+              .mobile-carousel-wrapper .slick-track {
+                display: flex !important;
+              }
+              @media (max-width: 768px) {
+                .mobile-carousel-wrapper .slick-slide > div {
+                  width: 100% !important;
+                  padding: 0 16px !important;
+                }
+                .mobile-carousel-wrapper .slick-slide {
+                  width: 100% !important;
+                }
+              }
+            `}</style>
             <Slider {...sliderSettings}>
               {PRODUCTS.chocolate.map((p) => (
-                <div key={p.id} className="px-2">
+                <div key={p.id}>
                   <div
-                    className="product-card cursor-pointer"
+                    className="product-card cursor-pointer mx-2"
                     onClick={() => setModalItem(p)}
                   >
                     <img
