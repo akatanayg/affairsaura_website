@@ -29,18 +29,16 @@ export default function Home() {
             Explore Our Categories
           </h2>
 
-          {/* Grid - Mobile optimized */}
+          {/* Grid - Mobile optimized for horizontal layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 lg:gap-10">
             {/* Chocolate Card */}
-            <div className="relative group rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-              <div className="h-64 md:aspect-[4/5] overflow-hidden">
-                <img
-                  src="/bottlec.jpg"
-                  alt="Chocolate"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#5b3a2e]/95 via-[#5b3a2e]/60 to-[#5b3a2e]/30 md:to-transparent flex flex-col justify-end items-center text-white p-6 md:p-6 lg:p-8">
+            <div className="relative group rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 aspect-[3/2] md:aspect-[4/5]">
+              <img
+                src="/bottlec.jpg"
+                alt="Chocolate"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#5b3a2e]/95 via-[#5b3a2e]/60 to-[#5b3a2e]/30 md:from-[#5b3a2e]/95 md:via-[#5b3a2e]/60 md:to-transparent flex flex-col justify-end items-center text-white p-6 md:p-6 lg:p-8">
                 <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-3 lg:mb-4 drop-shadow-md text-center">
                   Chocolates
                 </h3>
@@ -54,15 +52,13 @@ export default function Home() {
             </div>
 
             {/* Soap Card */}
-            <div className="relative group rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-              <div className="h-64 md:aspect-[4/5] overflow-hidden">
-                <img
-                  src="/lemon.jpg"
-                  alt="Soap"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#234534]/95 via-[#234534]/60 to-[#234534]/30 md:to-transparent flex flex-col justify-end items-center text-white p-6 md:p-6 lg:p-8">
+            <div className="relative group rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 aspect-[3/2] md:aspect-[4/5]">
+              <img
+                src="/lemon.jpg"
+                alt="Soap"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#234534]/95 via-[#234534]/60 to-[#234534]/30 md:from-[#234534]/95 md:via-[#234534]/60 md:to-transparent flex flex-col justify-end items-center text-white p-6 md:p-6 lg:p-8">
                 <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-3 lg:mb-4 drop-shadow-md text-center">
                   Soaps
                 </h3>
